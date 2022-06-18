@@ -1,5 +1,6 @@
 ## 508. 出现次数最多的子树元素和
-> 难度：Medium
+> 难度：Medium \
+> [原题链接](https://leetcode.cn/problems/most-frequent-subtree-sum)
 
 给你一个二叉树的根结点`root`，请返回出现次数最多的子树元素和。如果有多个元素出现的次数相同，返回所有出现次数最多的子树元素和（不限顺序）。
 
@@ -11,5 +12,3 @@
 ![示例1](pic/ex1.png)
 
 ![示例2](pic/ex2.png)
-
-[原题链接](https://leetcode.cn/problems/most-frequent-subtree-sum)
