@@ -2,7 +2,7 @@ package cn.shinonome;
 
 
 /**
- * @Description TODO
+ * @Description 2139. 得到目标值的最少行动次数
  * @Author chris
  * @Date 2022/6/19, 00:33
  */
@@ -16,20 +16,19 @@ public class Main {
 
 class Solution {
     public int minMoves(int target, int maxDoubles) {
-        return dfs(target, maxDoubles);
-    }
-
-    private int dfs(int target, int maxDoubles) {
-        if (target == 1) {
-            return 0;
+        int count = 0;
+        while (target != 1 && maxDoubles > 0) {
+            if (target % 2 == 0) {  // 不难发现原数越大，乘二的收益越大，采用贪心的方法
+                target >>= 1;
+                ++count;
+            } else {
+                target = (target - 1) >> 1;
+                count += 2;
+            }
+            --maxDoubles;
         }
-        if (maxDoubles == 0) {
-            return target - 1;
-        }
-        if (target % 2 == 0) {
-            return dfs(target >> 1, maxDoubles - 1) + 1;
-        } else {
-            return dfs((target - 1) >> 1, maxDoubles - 1) + 2;
-        }
+        // maxDoubles全部耗尽之后，只能采用加一的方式，需要target-1次
+        // target = 1时，也成立
+        return count + target - 1;
     }
 }
