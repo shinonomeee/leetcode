@@ -7,6 +7,8 @@ package cn.shinonome;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, LeetCode!");
+        Solution s = new Solution();
+
+
     }
 }
