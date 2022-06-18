@@ -1,7 +1,7 @@
 package cn.shinonome;
 
 /**
- * @Description
+ * @Description TODO
  * @Author chris
  * @Date 2022/6/19, 00:33
  */
@@ -11,4 +11,8 @@ public class Main {
 
 
     }
+}
+
+class Solution {
+
 }
