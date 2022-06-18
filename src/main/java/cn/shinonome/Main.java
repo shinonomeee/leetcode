@@ -24,7 +24,7 @@ class Solution {
     public int[] findFrequentTreeSum(TreeNode root) {
         dfs(root);
         Stack<Integer> st = new Stack<>();
-        for (Map.Entry<Integer, Integer> entry: feq.entrySet()) {
+        for (Map.Entry<Integer, Integer> entry : feq.entrySet()) {
             int key = entry.getKey();
             int keyFeq = entry.getValue();
             if (keyFeq == maxFeq) {
@@ -47,12 +47,8 @@ class Solution {
         int leftFeq = feq.getOrDefault(sum, 0) + 1;
         feq.put(sum, leftFeq);
         maxFeq = Math.max(maxFeq, leftFeq);
-        if (node.left != null) {
-            dfs(node.left);
-        }
-        if (node.right != null) {
-            dfs(node.right);
-        }
+        dfs(node.left);
+        dfs(node.right);
     }
 
     private int getSum(TreeNode node) {
@@ -68,11 +64,14 @@ class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
+
     TreeNode() {
     }
+
     TreeNode(int val) {
         this.val = val;
     }
+
     TreeNode(int val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
