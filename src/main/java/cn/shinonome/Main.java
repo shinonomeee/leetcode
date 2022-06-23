@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Description TODO
+ * @Description 30. 串联所有单词的子串
  * @Author chris
  * @Date 2022/6/19, 00:33
  */
