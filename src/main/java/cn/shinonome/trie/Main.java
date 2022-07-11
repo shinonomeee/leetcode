@@ -1,7 +1,4 @@
-package cn.shinonome;
-
-import java.util.function.BiFunction;
-import java.util.function.Function;
+package cn.shinonome.trie;
 
 /**
  * @Description TODO
@@ -18,7 +15,12 @@ public class Main {
     }
 }
 
-// 字典树
+/**
+ * 字典树
+ * @Author chris
+ * @Date 2022/7/11, 14:59
+ * @Name Trie
+ */
 class Trie {
     public boolean isFinished;
     public Trie[] child;
@@ -37,6 +39,11 @@ class MagicDictionary {
         root = new Trie();
     }
 
+    /**
+     * 构建字典树
+     * @param dictionary 字典
+     * @Author chris
+     */
     public void buildDict(String[] dictionary) {
         Trie cur;
         int len, index, i;
@@ -58,6 +65,15 @@ class MagicDictionary {
         return dfs(searchWord, 0, root, false);
     }
 
+    /**
+     * dfs深搜
+     * @param word 待搜索的字符串
+     * @param begin 字符串的开始位置
+     * @param node 当前结点，即从哪个结点开始
+     * @param hasDiff 有没有差异，若有，则直接调用精确匹配
+     * @return
+     * @Author chris
+     */
     private boolean dfs(String word, int begin, Trie node, boolean hasDiff) {
         if (begin == word.length()) {
             return hasDiff && node.isFinished;
@@ -79,6 +95,15 @@ class MagicDictionary {
         }
         return dfs(word, begin + 1, node.child[index], false);
     }
+
+    /**
+     * 精准匹配
+     * @param word
+     * @param begin
+     * @param node
+     * @return
+     * @Author chris
+     */
     private boolean accurateSearch(String word, int begin, Trie node) {
         Trie cur = node;
         int index;
